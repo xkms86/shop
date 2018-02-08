@@ -18,6 +18,8 @@ namespace Shop.Controllers
 
         }
 
+
+        [ActionName("Pokaz")]
         public ActionResult Display(int id)
         {
             Product product = new Product();
@@ -27,9 +29,9 @@ namespace Shop.Controllers
             product.Price = 3;
 
             if (product.Id == id)
-                return View(product);
+                return View("~/Views/Product/Display.cshtml", product);
             else
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Index", "Home");
                     }
     }
 }
