@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Shop.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    var first = Model.First();
+}
+
+
+
+<h2>Index</h2>
+<p>Produktów mamy: @Model.Count()</p>
+<p>Pierwszym przedmiotem było : @first.Name</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@foreach (var product in Model)
+{
+    <div class="product">
+        <h2>@product.Name</h2>
+        <p>@product.Description</p>
+        <div class="price red" >@product.Price</div>
+    </div>
+}
