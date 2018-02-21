@@ -9,22 +9,29 @@ namespace Shop.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
-        public ActionResult Index()
+        static List<Product> _products = new List<Product> {
+            new Product {Id=1, Name = "Myszka", Description="Opis myszki", Price = 500},
+            new Product {Id=2, Name = "Klawiatura", Description="Opis klawiatury", Price = 300},
+            new Product {Id=3, Name = "Laser", Description="Opis lasera", Price = 100},
+            new Product {Id=4, Name = "Gumka", Description="Opis gumki", Price = 50}
+        };
+
+         // GET: Product
+         public ActionResult Index()
         {
-            return View();
+                        
+           var model = _products;
+           return View(model);
         }
 
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
-            return View();
-        }
-
-        // GET: Product/Create
-        public ActionResult Create()
-        {
-            return View();
+            var model = _products.FirstOrDefault(p => p.Id == id);
+            
+            if (model == null)
+            return RedirectToAction("Index");
+           
         }
 
         // POST: Product/Create
