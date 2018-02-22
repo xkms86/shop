@@ -31,6 +31,8 @@ namespace Shop.Controllers
             
             if (model == null)
             return RedirectToAction("Index");
+
+            return View(model);
            
         }
 
