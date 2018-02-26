@@ -33,9 +33,13 @@
             </div>
         </div>
     </div>
+    <div>
+        @Html.Action("CheapestProduct", "Product")
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
+        @RenderSection("AdditionalFooterSectoin", required: false)
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
