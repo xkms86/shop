@@ -190,3 +190,5 @@ C:\projects\shop\Shop\bin\Microsoft.AI.Web.xml
 C:\projects\shop\Shop\obj\Debug\Shop.csprojResolveAssemblyReference.cache
 C:\projects\shop\Shop\obj\Debug\Shop.dll
 C:\projects\shop\Shop\obj\Debug\Shop.pdb
+C:\projects\shop\Shop\obj\Debug\Shop.Migrations.ShopInitial.resources
+C:\projects\shop\Shop\obj\Debug\Shop.csproj.GenerateResource.Cache
