@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Shop.Models.Product>
+@{ 
+    ViewBag.Title = "Index";
+    var first = Model.First();
+}
+
+<h1>Produkty</h1>
+<p>Produktów w sklepie: @Model.Count()</p>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var product in Model)
+{
+   @Html.Partial("_Product", product)
+    <div><p>@Html.ActionLink("Edytuj", "Edit", new { id = product.Id })</p></div>
+}
+
+@section AdditionalFooterSectoin{
+    <p>Pierwszy produkt który został dodanyasdasdasad to: @first.Name</p>
+    }
+
+    }

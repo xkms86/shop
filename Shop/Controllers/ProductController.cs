@@ -10,7 +10,7 @@ namespace Shop.Controllers
     public class ProductController : Controller
     {
         static List<Product> _products = new List<Product> {
-            new Product {Id=1, Name = "Myszka", Description="Opis myszki", Price = 500},
+            new Product {Id=1, Name = "Myszka", Description="Kożystaj z okazji i KUP mYSZKE!!!", Price = 500},
             new Product {Id=2, Name = "Klawiatura", Description="Opis klawiatury", Price = 300},
             new Product {Id=3, Name = "Laser", Description="Opis lasera", Price = 100},
             new Product {Id=4, Name = "Gumka", Description="Opis gumki", Price = 50}
@@ -36,6 +36,13 @@ namespace Shop.Controllers
            
         }
 
+        [ChildActionOnly]
+        public ActionResult CheapestProduct()
+        {
+            var model = _products.FirstOrDefault(p => p.Price == _products.Min(pr => pr.Price));
+            return PartialView("_Product", model);
+        }
+
         // POST: Product/Create
         [HttpPost]
         public ActionResult Create(Product collection)
@@ -55,23 +62,23 @@ namespace Shop.Controllers
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var product = _products.Single(p => p.Id == id);
+            return View(product);
         }
 
         // POST: Product/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Product collection)
         {
-            try
+            var product = _products.Single(p => p.Id == id);
+            if(TryUpdateModel(product))
             {
-                // TODO: Add update logic here
-
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+                
+            
+                return View(product);
+            
         }
 
         // GET: Product/Delete/5
