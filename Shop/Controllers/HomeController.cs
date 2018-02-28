@@ -12,6 +12,7 @@ namespace Shop.Controllers
 
         public ActionResult Index()
         {
+            
             var model = _db.Categories.ToList();
 
             return View(model);
